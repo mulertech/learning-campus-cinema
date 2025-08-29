@@ -12,6 +12,24 @@
         {% endblock %}
     </head>
     <body>
+        <header class="nav">
+            <div class="container nav-inner">
+                <a class="brand" href="index.html">
+                    <span class="brand-logo">A</span> <span>Cinéma Aurora</span>
+                </a>
+
+                <input id="menu" type="checkbox" class="hidden" aria-hidden="true">
+                <label for="menu" class="menu-toggle btn">Menu</label>
+
+                <nav class="nav-links">
+                    <a href="index.html" class="active">Accueil</a>
+                    <a href="programmation.html">Programmation</a>
+                    <a href="reservation.html">Réserver</a>
+                    <a href="profil.html">Profil</a>
+                    <a class="cta" href="auth.html">Se connecter</a>
+                </nav>
+            </div>
+        </header>
         {% block body %}{% endblock %}
     </body>
 </html>
