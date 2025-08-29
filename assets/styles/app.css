@@ -170,3 +170,8 @@ button.btn.small.danger {
 .muted{color:var(--muted)}
 .spacer{height:30px}
 hr.sep{border:0; height:1px; background: color-mix(in oklab, var(--panel-2) 70%, transparent); margin: 24px 0}
+
+.seances-list{
+    padding: 0;
+    list-style: none;
+}
