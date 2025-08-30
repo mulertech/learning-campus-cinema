@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes réservations - Cinéma Aurora{% endblock %}
+
+{% block body %}
+    <h1>Mon profil</h1>
+    <p class="muted">Bienvenue sur votre espace personnel.</p>
+
+    <h2>Mes réservations</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Film</th>
+                <th>Date</th>
+                <th>Places</th>
+                <th>Salle</th>
+                <th>Statut</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reservation in app.user.reservations %}
+                <tr>
+                    <td>{{ reservation.seance.film.titre }}</td>
+                    <td>{{ reservation.seance.date|date('d/m/Y H\\hi') }}</td>
+                    <td>{{ reservation.nombrePlaces }}</td>
+                    <td>Salle {{ reservation.seance.salle.numero }}</td>
+                    <td><span class="badge success">{{ reservation.statut }}</span></td>
+                    {% if reservation.statut == 'Confirmé' %}
+                        <td><a class="btn small danger" href="{{ path('app_annuler_reservation', {id: reservation.id}) }}">Annuler</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
