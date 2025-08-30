@@ -26,7 +26,12 @@
                     <a href="{{ path('app_programmation') }}">Programmation</a>
                     <a href="reservation.html">Réserver</a>
                     <a href="profil.html">Profil</a>
-                    <a class="cta" href="auth.html">Se connecter</a>
+                    {% if not app.user %}
+                        <a class="cta" href="{{ path('app_login') }}">Se connecter</a>
+                        <a class="cta" href="{{ path('app_register') }}">S'inscrire</a>
+                    {% else %}
+                        <a class="cta" href="{{ path('app_logout') }}">Déconnexion</a>
+                    {% endif %}
                 </nav>
             </div>
         </header>
