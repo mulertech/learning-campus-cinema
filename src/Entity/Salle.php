@@ -24,6 +24,9 @@ class Salle
     #[ORM\OneToMany(targetEntity: Seance::class, mappedBy: 'salle')]
     private Collection $seances;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $Capacite = null;
+
     public function __construct()
     {
         $this->seances = new ArrayCollection();
@@ -72,6 +75,18 @@ class Salle
                 $seance->setSalle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCapacite(): ?int
+    {
+        return $this->Capacite;
+    }
+
+    public function setCapacite(?int $Capacite): static
+    {
+        $this->Capacite = $Capacite;
 
         return $this;
     }
