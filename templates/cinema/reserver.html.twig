@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réserver - Cinéma Aurora{% endblock %}
+
+{% block body %}
+    <div class="actions" style="justify-content:space-between">
+        <h1 style="margin:0">Réserver une place</h1>
+    </div>
+    <p class="muted">{{ seance.film.titre }} - {{ seance.film.langue }} - {{ seance.date|date('d/m/Y H\\hi') }} - Salle {{ seance.salle.numero }}</p>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <button>Réserver</button>
+    {{ form_end(form) }}
+{% endblock %}

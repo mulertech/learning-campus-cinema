@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Range;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -21,6 +22,7 @@ class Reservation
     private ?Seance $seance = null;
 
     #[ORM\Column]
+    #[Range(min: 1, max: 15)]
     private ?int $nombre_places = null;
 
     #[ORM\Column(length: 20)]
